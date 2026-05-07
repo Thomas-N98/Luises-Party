@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <title>Ente🦆: Station 1</title>
 
   <style>
     body {
@@ -57,15 +57,23 @@
 <body>
 
 <div class="box">
-  <h1>Ente🦆: Station 1</h1>
+
+  <h1>🦆 Ente: Station 1</h1>
 
   <p>Gib das Lösungswort ein:</p>
 
-  <input type="text" id="answer" placeholder="Lösungswort">
+  <input
+    type="text"
+    id="answer"
+    placeholder="Lösungswort"
+  >
 
-  <button onclick="checkAnswer()">Prüfen</button>
+  <button onclick="checkAnswer()">
+    Prüfen
+  </button>
 
   <div id="result"></div>
+
 </div>
 
 <script>
@@ -73,6 +81,7 @@
 async function sha256(text) {
 
   const encoder = new TextEncoder();
+
   const data = encoder.encode(text);
 
   const hashBuffer =
