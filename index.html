@@ -69,30 +69,52 @@
 </div>
 
 <script>
-  function checkAnswer() {
 
-    const correctAnswer = "GEBURTSTAGSKIND";
+async function sha256(text) {
 
-    const userAnswer =
-      document.getElementById("answer")
-      .value
-      .trim()
-      .toUpperCase();
+  const encoder = new TextEncoder();
+  const data = encoder.encode(text);
 
-    const result =
-      document.getElementById("result");
+  const hashBuffer =
+    await crypto.subtle.digest("SHA-256", data);
 
-    if (userAnswer === correctAnswer) {
+  const hashArray =
+    Array.from(new Uint8Array(hashBuffer));
 
-      result.innerHTML =
-        "✅ Richtig!<br><br>Du findest die nächste Station bei [KOORDINATEN EINFÜGEN].<br><br>⚠️⚠️ <b>WICHTIG:</b> Nimm mindestens <span style='color: #00ccff;'>1 Liter Wasser</span> mit! ⚠️⚠️";
+  return hashArray
+    .map(b => b.toString(16).padStart(2, "0"))
+    .join("");
+}
 
-    } else {
+async function checkAnswer() {
 
-      result.innerHTML =
-        "❌ Leider falsch.";
-    }
+  const correctHash =
+    "5f5c10e92ff8d3d275e7caf54df92b34bca6fd898aac2b1840e80fceb914d6d5";
+
+  const userAnswer =
+    document.getElementById("answer")
+    .value
+    .trim()
+    .toUpperCase();
+
+  const userHash =
+    await sha256(userAnswer);
+
+  const result =
+    document.getElementById("result");
+
+  if (userHash === correctHash) {
+
+    result.innerHTML =
+      "✅ Richtig!<br><br>Du findest die nächste Station bei [KOORDINATEN EINFÜGEN].<br><br>⚠️⚠️ <b>WICHTIG:</b> Nimm mindestens <span style='color: #00ccff;'>1 Liter Wasser</span> mit! ⚠️⚠️";
+
+  } else {
+
+    result.innerHTML =
+      "❌ Leider falsch.";
   }
+}
+
 </script>
 
 </body>
