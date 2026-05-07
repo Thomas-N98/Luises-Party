@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Station 1</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .box {
+      background: #222;
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 18px;
+      margin-top: 15px;
+      border-radius: 8px;
+      border: none;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background: #00cc66;
+      color: white;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+  <h1>Station 1</h1>
+
+  <p>Gib das Lösungswort ein:</p>
+
+  <input type="text" id="answer" placeholder="Lösungswort">
+
+  <button onclick="checkAnswer()">Prüfen</button>
+
+  <div id="result"></div>
+</div>
+
+<script>
+  function checkAnswer() {
+
+    const correctAnswer = "BANANE";
+
+    const userAnswer =
+      document.getElementById("answer")
+      .value
+      .trim()
+      .toUpperCase();
+
+    const result =
+      document.getElementById("result");
+
+    if (userAnswer === correctAnswer) {
+
+      result.innerHTML =
+        "✅ Richtig!<br><br>Geht jetzt zum Basketballplatz hinter der Schule.";
+
+    } else {
+
+      result.innerHTML =
+        "❌ Leider falsch.";
+    }
+  }
+</script>
+
+</body>
+</html>
