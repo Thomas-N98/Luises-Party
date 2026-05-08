@@ -13,8 +13,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
     }
 
     .box {
@@ -22,8 +24,18 @@
       padding: 30px;
       border-radius: 15px;
       width: 90%;
-      max-width: 400px;
+      max-width: 700px;
       text-align: center;
+    }
+
+    .info {
+      background: #333;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      line-height: 1.8;
+      text-align: left;
+      font-size: 18px;
     }
 
     input {
@@ -51,6 +63,15 @@
       margin-top: 20px;
       font-size: 18px;
     }
+
+    ul {
+      margin-top: 10px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
   </style>
 </head>
 
@@ -59,6 +80,48 @@
 <div class="box">
 
   <h1>🦆 Ente: Station 1</h1>
+
+  <div class="info">
+
+    Die Ente hat versehentlich das Badewasser angelassen.
+    <br><br>
+
+    In welcher Reihenfolge werden die Kammern komplett überflutet?
+    <br><br>
+
+    Die Reihenfolge ergibt dein Lösungswort.
+    Du kannst deine Lösung anschließend mit dem QR-Code überprüfen.
+    <br><br>
+
+    <b>Regeln:</b>
+
+    <ul>
+
+      <li>
+      Wasser fließt immer nach unten (Schwerkraft)
+      </li>
+
+      <li>
+      Der Wasserspiegel ist immer horizontal 😜
+      </li>
+
+      <li>
+      Mehr Platz = dauert länger bis es voll ist
+      </li>
+
+      <li>
+      Kann Wasser zu beiden Seiten abfließen,
+      teilt es sich gleichmäßig auf
+      </li>
+
+      <li>
+      Für dieses Rätsel nehmen wir an,
+      dass Luft überall vollständig entweichen kann
+      </li>
+
+    </ul>
+
+  </div>
 
   <p>Gib das Lösungswort ein:</p>
 
