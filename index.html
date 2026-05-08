@@ -1,86 +1,139 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ente🦆: Station 1</title>
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>🦆 Ente: Station 1</title>
 
   <style>
+
     body {
+
       font-family: Arial, sans-serif;
       background: #111;
       color: white;
+
       display: flex;
       justify-content: center;
       align-items: center;
+
       min-height: 100vh;
+
       margin: 0;
       padding: 20px;
+
       box-sizing: border-box;
+
     }
 
     .box {
+
       background: #222;
+
       padding: 30px;
+
       border-radius: 15px;
+
       width: 90%;
-      max-width: 700px;
+      max-width: 750px;
+
       text-align: center;
+
     }
 
-    .info {
+    .textblock {
+
       background: #333;
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 25px;
-      line-height: 1.8;
-      text-align: left;
-      font-size: 18px;
-    }
 
-    input {
-      width: 100%;
-      padding: 12px;
+      padding: 25px;
+
+      border-radius: 10px;
+
+      text-align: left;
+
+      line-height: 1.8;
+
       font-size: 18px;
-      margin-top: 15px;
-      border-radius: 8px;
-      border: none;
-      box-sizing: border-box;
+
+      margin-bottom: 25px;
+
     }
 
     button {
-      margin-top: 15px;
-      padding: 12px 20px;
+
+      margin-top: 10px;
+
+      padding: 12px 22px;
+
       font-size: 18px;
+
       border: none;
+
       border-radius: 8px;
-      background: #00cc66;
-      color: white;
+
       cursor: pointer;
+
+      color: white;
+
+      background: #00aa55;
+
     }
 
     .back-button {
+
       background: #666;
+
       margin-right: 10px;
+
+    }
+
+    input {
+
+      width: 100%;
+
+      padding: 12px;
+
+      font-size: 18px;
+
+      margin-top: 15px;
+
+      border-radius: 8px;
+
+      border: none;
+
+      box-sizing: border-box;
+
     }
 
     #result {
-      margin-top: 20px;
+
+      margin-top: 25px;
+
       font-size: 18px;
+
+      line-height: 1.6;
+
     }
 
     ul {
-      margin-top: 10px;
+
+      margin-top: 15px;
+
     }
 
     li {
-      margin-bottom: 10px;
+
+      margin-bottom: 12px;
+
     }
 
-    #checkerScreen {
-      display: none;
-    }
   </style>
+
 </head>
 
 <body>
@@ -89,54 +142,132 @@
 
   <h1>🦆 Ente: Station 1</h1>
 
-  <div id="infoScreen">
+  <!-- SEITE 1 -->
 
-    <div class="info">
-      Die Ente hat versehentlich das Badewasser angelassen.
+  <div id="page1">
+
+    <div class="textblock">
+
+      Glückwunsch!
       <br><br>
 
-      In welcher Reihenfolge werden die Kammern komplett überflutet?
+      Wenn ihr das hier lest,
+      habt ihr erfolgreich das Rohr überflutet.
       <br><br>
 
-      Die Reihenfolge ergibt dein Lösungswort.
-      Du kannst deine Lösung anschließend hier überprüfen.
+      Nehmt euch nur eines dieser Papiere,
+      damit die anderen Gruppen auch noch was haben.
       <br><br>
 
-      <b>Regeln:</b>
+      Macht den PET-Ling wieder zu
+      und versenkt ihn in den Tiefen des Klorohres.
+      <br><br>
 
-      <ul>
-        <li>Wasser fließt immer nach unten (Schwerkraft)</li>
-        <li>Der Wasserspiegel ist immer horizontal 😜</li>
-        <li>Mehr Platz = dauert länger bis es voll ist</li>
-        <li>Kann Wasser zu beiden Seiten abfließen, teilt es sich gleichmäßig auf</li>
-        <li>Für dieses Rätsel nehmen wir an, dass Luft überall vollständig entweichen kann</li>
-      </ul>
+      Geht auf Weiter,
+      um die Beschreibung des Rätsels zu lesen.
+
     </div>
 
-    <button onclick="showChecker()">
+    <button onclick="showPage2()">
+
       Weiter
+
     </button>
 
   </div>
 
-  <div id="checkerScreen">
+  <!-- SEITE 2 -->
 
-    <p>Gib das Lösungswort ein:</p>
+  <div id="page2" style="display:none;">
 
-    <input
-      type="text"
-      id="answer"
-      placeholder="Lösungswort"
-    >
+    <div class="textblock">
+
+      Die Ente hat versehentlich das Badewasser angelassen.
+      <br><br>
+
+      In welcher Reihenfolge werden die blauen Kammern komplett überflutet?
+      <br><br>
+
+      Die Reihenfolge ergibt dein Lösungswort.
+      Du kannst deine Lösung mit dem QR-Code überprüfen.
+      <br><br>
+
+      Weitere dezent sarkastische Anmerkungen
+      über das Fließverhalten von Wasser…
+      <br><br>
+
+      <ul>
+
+        <li>
+          Wasser fließt nach unten (Schwerkraft)
+        </li>
+
+        <li>
+          Der Wasserpegel ist immer horizontal
+          <br>
+          😜 --------
+        </li>
+
+        <li>
+          Mehr Platz = dauert länger bis es voll ist
+        </li>
+
+        <li>
+          Kann Wasser zu beiden Seiten abfließen,
+          teilt es sich gerecht auf
+        </li>
+
+        <li>
+          Für das Rätsel nehmen wir an,
+          dass Luft überall komplett entweichen kann
+        </li>
+
+      </ul>
+
+    </div>
+
+    <button class="back-button"
+            onclick="showPage1()">
+
+      Zurück
+
+    </button>
+
+    <button onclick="showPage3()">
+
+      Weiter
+
+    </button>
+
+  </div>
+
+  <!-- SEITE 3 -->
+
+  <div id="page3" style="display:none;">
+
+    <p>
+
+      Gib das Lösungswort ein:
+
+    </p>
+
+    <input type="text"
+           id="answer"
+           placeholder="Lösungswort">
 
     <br>
 
-    <button class="back-button" onclick="showInfo()">
+    <button class="back-button"
+            onclick="showPage2()">
+
       Zurück
+
     </button>
 
     <button onclick="checkAnswer()">
+
       Prüfen
+
     </button>
 
     <div id="result"></div>
@@ -147,55 +278,78 @@
 
 <script>
 
-function showChecker() {
-  document.getElementById("infoScreen").style.display = "none";
-  document.getElementById("checkerScreen").style.display = "block";
-}
+  function showPage1() {
 
-function showInfo() {
-  document.getElementById("checkerScreen").style.display = "none";
-  document.getElementById("infoScreen").style.display = "block";
-}
+    document.getElementById("page1").style.display = "block";
+    document.getElementById("page2").style.display = "none";
+    document.getElementById("page3").style.display = "none";
 
-async function sha256(text) {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(text);
-
-  const hashBuffer =
-    await crypto.subtle.digest("SHA-256", data);
-
-  const hashArray =
-    Array.from(new Uint8Array(hashBuffer));
-
-  return hashArray
-    .map(b => b.toString(16).padStart(2, "0"))
-    .join("");
-}
-
-async function checkAnswer() {
-  const correctHash =
-    "cdec7cfb3f71104656abcd3ef256dfdd9b4cbdc39cec1945b14770edda1873df";
-
-  const userAnswer =
-    document.getElementById("answer")
-      .value
-      .trim()
-      .toUpperCase();
-
-  const userHash =
-    await sha256(userAnswer);
-
-  const result =
-    document.getElementById("result");
-
-  if (userHash === correctHash) {
-    result.innerHTML =
-      "✅ Richtig!<br><br>Schaue dich vor dem Haus nach dem 🦆-Symbol um.<br><br>⚠️⚠️ <b>WICHTIG:</b> Nimm mindestens <span style='color: #00ccff;'>1 Liter Wasser</span> mit! ⚠️⚠️";
-  } else {
-    result.innerHTML =
-      "❌ Leider falsch.";
   }
-}
+
+  function showPage2() {
+
+    document.getElementById("page1").style.display = "none";
+    document.getElementById("page2").style.display = "block";
+    document.getElementById("page3").style.display = "none";
+
+  }
+
+  function showPage3() {
+
+    document.getElementById("page1").style.display = "none";
+    document.getElementById("page2").style.display = "none";
+    document.getElementById("page3").style.display = "block";
+
+  }
+
+  async function sha256(text) {
+
+    const encoder = new TextEncoder();
+
+    const data = encoder.encode(text);
+
+    const hashBuffer =
+      await crypto.subtle.digest("SHA-256", data);
+
+    const hashArray =
+      Array.from(new Uint8Array(hashBuffer));
+
+    return hashArray
+      .map(b => b.toString(16).padStart(2, "0"))
+      .join("");
+
+  }
+
+  async function checkAnswer() {
+
+    const correctHash =
+      "cdec7cfb3f71104656abcd3ef256dfdd9b4cbdc39cec1945b14770edda1873df";
+
+    const userAnswer =
+      document.getElementById("answer")
+        .value
+        .trim()
+        .toUpperCase();
+
+    const userHash =
+      await sha256(userAnswer);
+
+    const result =
+      document.getElementById("result");
+
+    if (userHash === correctHash) {
+
+      result.innerHTML =
+        "✅ Richtig!<br><br>Schaue dich vor dem Haus nach dem 🦆-Symbol um.<br><br>⚠️⚠️ <b>WICHTIG:</b> Nimm mindestens <span style='color:#00ccff;'>1 Liter Wasser</span> mit! ⚠️⚠️";
+
+    } else {
+
+      result.innerHTML =
+        "❌ Leider falsch.";
+
+    }
+
+  }
 
 </script>
 
