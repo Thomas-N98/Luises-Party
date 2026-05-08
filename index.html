@@ -32,7 +32,7 @@
       background: #333;
       padding: 20px;
       border-radius: 10px;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
       line-height: 1.8;
       text-align: left;
       font-size: 18px;
@@ -59,6 +59,11 @@
       cursor: pointer;
     }
 
+    .back-button {
+      background: #666;
+      margin-right: 10px;
+    }
+
     #result {
       margin-top: 20px;
       font-size: 18px;
@@ -72,6 +77,9 @@
       margin-bottom: 10px;
     }
 
+    #checkerScreen {
+      display: none;
+    }
   </style>
 </head>
 
@@ -81,70 +89,76 @@
 
   <h1>🦆 Ente: Station 1</h1>
 
-  <div class="info">
+  <div id="infoScreen">
 
-    Die Ente hat versehentlich das Badewasser angelassen.
-    <br><br>
+    <div class="info">
+      Die Ente hat versehentlich das Badewasser angelassen.
+      <br><br>
 
-    In welcher Reihenfolge werden die Kammern komplett überflutet?
-    <br><br>
+      In welcher Reihenfolge werden die Kammern komplett überflutet?
+      <br><br>
 
-    Die Reihenfolge ergibt dein Lösungswort.
-    Du kannst deine Lösung anschließend mit dem QR-Code überprüfen.
-    <br><br>
+      Die Reihenfolge ergibt dein Lösungswort.
+      Du kannst deine Lösung anschließend hier überprüfen.
+      <br><br>
 
-    <b>Regeln:</b>
+      <b>Regeln:</b>
 
-    <ul>
+      <ul>
+        <li>Wasser fließt immer nach unten (Schwerkraft)</li>
+        <li>Der Wasserspiegel ist immer horizontal 😜</li>
+        <li>Mehr Platz = dauert länger bis es voll ist</li>
+        <li>Kann Wasser zu beiden Seiten abfließen, teilt es sich gleichmäßig auf</li>
+        <li>Für dieses Rätsel nehmen wir an, dass Luft überall vollständig entweichen kann</li>
+      </ul>
+    </div>
 
-      <li>
-      Wasser fließt immer nach unten (Schwerkraft)
-      </li>
-
-      <li>
-      Der Wasserspiegel ist immer horizontal 😜
-      </li>
-
-      <li>
-      Mehr Platz = dauert länger bis es voll ist
-      </li>
-
-      <li>
-      Kann Wasser zu beiden Seiten abfließen,
-      teilt es sich gleichmäßig auf
-      </li>
-
-      <li>
-      Für dieses Rätsel nehmen wir an,
-      dass Luft überall vollständig entweichen kann
-      </li>
-
-    </ul>
+    <button onclick="showChecker()">
+      Weiter
+    </button>
 
   </div>
 
-  <p>Gib das Lösungswort ein:</p>
+  <div id="checkerScreen">
 
-  <input
-    type="text"
-    id="answer"
-    placeholder="Lösungswort"
-  >
+    <p>Gib das Lösungswort ein:</p>
 
-  <button onclick="checkAnswer()">
-    Prüfen
-  </button>
+    <input
+      type="text"
+      id="answer"
+      placeholder="Lösungswort"
+    >
 
-  <div id="result"></div>
+    <br>
+
+    <button class="back-button" onclick="showInfo()">
+      Zurück
+    </button>
+
+    <button onclick="checkAnswer()">
+      Prüfen
+    </button>
+
+    <div id="result"></div>
+
+  </div>
 
 </div>
 
 <script>
 
+function showChecker() {
+  document.getElementById("infoScreen").style.display = "none";
+  document.getElementById("checkerScreen").style.display = "block";
+}
+
+function showInfo() {
+  document.getElementById("checkerScreen").style.display = "none";
+  document.getElementById("infoScreen").style.display = "block";
+}
+
 async function sha256(text) {
-
   const encoder = new TextEncoder();
-
   const data = encoder.encode(text);
 
   const hashBuffer =
@@ -159,15 +173,14 @@ async function sha256(text) {
 }
 
 async function checkAnswer() {
-
   const correctHash =
     "cdec7cfb3f71104656abcd3ef256dfdd9b4cbdc39cec1945b14770edda1873df";
 
   const userAnswer =
     document.getElementById("answer")
-    .value
-    .trim()
-    .toUpperCase();
+      .value
+      .trim()
+      .toUpperCase();
 
   const userHash =
     await sha256(userAnswer);
@@ -176,12 +189,9 @@ async function checkAnswer() {
     document.getElementById("result");
 
   if (userHash === correctHash) {
-
     result.innerHTML =
       "✅ Richtig!<br><br>Schaue dich vor dem Haus nach dem 🦆-Symbol um.<br><br>⚠️⚠️ <b>WICHTIG:</b> Nimm mindestens <span style='color: #00ccff;'>1 Liter Wasser</span> mit! ⚠️⚠️";
-
   } else {
-
     result.innerHTML =
       "❌ Leider falsch.";
   }
